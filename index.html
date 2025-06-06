@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Main site --------- Butter's Toast</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+<!-- FontAwesome CDN for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --bg: #121212;
+    --text: #fff;
+    --btn-bg: #2a2a2a;
+    --btn-border: #444;
+    --hover-bg: #444;
+    --accent: #1da1f2; /* Twitter blue */
+  }
+
+  body.light {
+    --bg: #fff;
+    --text: #000;
+    --btn-bg: #eee;
+    --btn-border: #ccc;
+    --hover-bg: #ddd;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  header {
+    padding: 2rem 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--btn-bg);
+    border-bottom: 1px solid var(--btn-border);
+    text-align: center;
+  }
+
+  main {
+    flex: 1;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  p.intro-text {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  button, a.button-link {
+    background-color: var(--btn-bg);
+    border: 1px solid var(--btn-border);
+    color: var(--text);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    min-width: 140px;
+  }
+
+  button:hover, a.button-link:hover {
+    background-color: var(--hover-bg);
+    color: var(--accent);
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+    background-color: var(--btn-bg);
+    border-top: 1px solid var(--btn-border);
+  }
+
+  .toggle-darkmode {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--btn-bg);
+    color: var(--text);
+    border: 1px solid var(--btn-border);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.3s;
+    z-index: 1000;
+  }
+
+  .toggle-darkmode:hover {
+    background: var(--hover-bg);
+  }
+
+  /* Social media container bottom right */
+  .social-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1000;
+  }
+
+  .social-icon {
+    color: var(--text);
+    font-size: 1.8rem;
+    transition: color 0.3s;
+    text-decoration: none;
+  }
+
+  .social-icon:hover {
+    color: var(--accent);
+  }
+
+  /* Adjust accent colors for specific social icons */
+  .social-icon.youtube:hover {
+    color: #FF0000;
+  }
+
+  .social-icon.bandlab:hover {
+    color: #1db954; /* Green */
+  }
+
+  /* Responsive for small screens */
+  @media (max-width: 480px) {
+    .btn-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    button, a.button-link {
+      min-width: unset;
+      width: 100%;
+    }
+    .social-container {
+      flex-direction: row;
+      bottom: 1rem;
+      right: 50%;
+      transform: translateX(50%);
+      gap: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>Butter's Toast</header>
+
+<button class="toggle-darkmode" onclick="toggleTheme()">Toggle Theme</button>
+
+<main>
+  <p class="intro-text">
+    You may be here from: My school (This is very rare lol), My GitHub, Twitter or social media. Anyway, here's a few pages you can visit while I crap my pants thinking about who's on here.
+  </p>
+
+  <div class="btn-container">
+    <a href="music.html" class="button-link" aria-label="Music page">Music</a>
+    <a href="Nerdy%20Stuff/index.html" class="button-link" aria-label="Nerdy Stuff page">Nerdy Stuff</a>
+    <a href="credits.html" class="button-link" aria-label="Credits page">Credits</a>
+    <a href="about.html" class="button-link" aria-label="About Me page">About Me</a>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt 
+  <a href="https://x.com/itsbuttryt" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: underline;">x.com/itsbuttryt</a>
+</footer>
+
+<!-- Social media icons bottom right -->
+<div class="social-container" aria-label="Social media links">
+  <a href="https://x.com/itsbuttryt" target="_blank" rel="noopener noreferrer" class="social-icon twitter" aria-label="Twitter (X)">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="https://youtube.com/@itzbuttryt" target="_blank" rel="noopener noreferrer" class="social-icon youtube" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://bandlab.com/arran_hewitt" target="_blank" rel="noopener noreferrer" class="social-icon bandlab" aria-label="BandLab">
+    <!-- BandLab doesn't have official icon in FontAwesome, so use music icon -->
+    <i class="fas fa-music"></i>
+  </a>
+</div>
+
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('light');
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  }
+
+  window.onload = () => {
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light');
+    }
+  };
+</script>
+
+</body>
+</html>
