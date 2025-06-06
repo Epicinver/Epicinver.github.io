@@ -2,41 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Me - Butter's Toast</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
+    :root {
+      --bg: #121212;
+      --text: #fff;
+      --btn-bg: #2a2a2a;
+      --btn-border: #444;
+      --hover-bg: #444;
+    }
+
+    body.light {
+      --bg: #fff;
+      --text: #000;
+      --btn-bg: #eee;
+      --btn-border: #ccc;
+      --hover-bg: #ddd;
+    }
+
     body {
-      background-color: #121212;
-      color: white;
+      background-color: var(--bg);
+      color: var(--text);
       font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 2rem;
-    }
-
-    h1 {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
       text-align: center;
+      padding: 0;
     }
 
-    .content {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1rem;
+    header {
+      padding: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--btn-bg);
+      border-bottom: 1px solid var(--btn-border);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
       line-height: 1.6;
     }
 
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: var(--btn-bg);
+      border-top: 1px solid var(--btn-border);
+      color: var(--text);
+    }
+
+    .toggle-darkmode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--btn-bg);
+      color: var(--text);
+      border: 1px solid var(--btn-border);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      user-select: none;
+      z-index: 1000;
+    }
+
+    .toggle-darkmode:hover {
+      background: var(--hover-bg);
+    }
+
     a {
-      color: #1e90ff;
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: var(--hover-bg);
     }
   </style>
 </head>
 <body>
-  <h1>About Me</h1>
-  <div class="content">
-    <p>Bro are you stalking me</p>
-    <p>Check out my <a href="music.html">Music</a> or <a href="Nerdy%20Stuff/index.html">Nerdy Stuff</a> now. (Prob not the nerdy shit unless ur a nerd lol)</p>
-    <p><a href="index.html">← Back to Home</a></p>
-	<p>(You should leave this page has less quality)</p>
-  </div>
+  <header>Butter's Toast</header>
+
+  <button class="toggle-darkmode" onclick="toggleTheme()">Toggle Theme</button>
+
+  <main>
+    <h1>About Me</h1>
+    <p>Yo! I'm Butter. If you're here, you're either a stalker, a dev, or curious. I make stuff, break stuff, and occasionally cry about it.</p>
+    <p>This site is a personal stash of projects, chaos, and creative energy. Welcome to the mess!</p>
+    <p>Check out my <a href="music.html">Music</a> or <a href="Nerdy%20Stuff/index.html">Nerdy Stuff</a> pages to see what I’ve been working on.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt 
+    <a href="https://x.com/itsbuttryt" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: underline;">
+      x.com/itsbuttryt
+    </a>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+      localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    }
+
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light');
+      }
+    };
+  </script>
 </body>
 </html>
