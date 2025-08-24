@@ -13,6 +13,8 @@
       --btn-bg: #2a2a2a;
       --btn-border: #444;
       --hover-bg: #444;
+      --accent: #1da1f2;
+      --card-bg: #1a1a1a;
     }
 
     body.light {
@@ -21,6 +23,7 @@
       --btn-bg: #eee;
       --btn-border: #ccc;
       --hover-bg: #ddd;
+      --card-bg: #f9f9f9;
     }
 
     body {
@@ -32,25 +35,71 @@
       flex-direction: column;
       min-height: 100vh;
       transition: background 0.3s, color 0.3s;
-      text-align: center;
-      padding: 0;
     }
 
     header {
-      padding: 2rem;
-      font-size: 2rem;
+      padding: 2rem 1rem 0.5rem;
+      font-size: 2.5rem;
       font-weight: 700;
       background: var(--btn-bg);
       border-bottom: 1px solid var(--btn-border);
+      text-align: center;
+    }
+
+    header small {
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 0.5rem;
+      color: var(--accent);
     }
 
     main {
       flex: 1;
-      padding: 2rem;
-      max-width: 700px;
+      padding: 2rem 1rem;
+      max-width: 800px;
       margin: 0 auto;
-      text-align: left;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--btn-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--hover-bg);
+    }
+
+    .card p {
+      margin: 0.5rem 0;
       line-height: 1.6;
+    }
+
+    .links {
+      margin-top: 1rem;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -80,32 +129,39 @@
     .toggle-darkmode:hover {
       background: var(--hover-bg);
     }
-
-    a {
-      color: var(--text);
-      text-decoration: underline;
-    }
-
-    a:hover {
-      color: var(--hover-bg);
-    }
   </style>
 </head>
 <body>
-  <header>Butter's Toast</header>
+  <header>
+    Butter's Toast
+    <small>About Me</small>
+  </header>
 
   <button class="toggle-darkmode" onclick="toggleTheme()">Toggle Theme</button>
 
   <main>
-    <h1>About Me</h1>
-    <p>Hi! This website is just a mess, welcome! Unless you're a stalker, you should leave.</p>
-    <p>I'm pretty young, but i know how to code, and i use that to my advantage.</p>
-    <p>check my <a href="music.html">Music</a> out! or my <a href="Nerdy%20Stuff/index.html">Nerdy Stuff</a> silly little page</p>
-    <li><a href="../index.html">Home</a></li>
+    <h1>Hey, I'm Butter 👋</h1>
+
+    <div class="card">
+      <p>Hi! This website is kind of a mess, but welcome anyway. Unless you're a stalker — in which case, maybe you should leave 😅.</p>
+    </div>
+
+    <div class="card">
+      <p>I'm pretty young, but I know how to code — and I definitely use that to my advantage.</p>
+    </div>
+
+    <div class="card">
+      <p>Want to see more of what I do?</p>
+      <div class="links">
+        <a href="music.html"><i class="fas fa-music"></i> Music</a>
+        <a href="Nerdy%20Stuff/index.html"><i class="fas fa-laptop-code"></i> Nerdy Stuff</a>
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+      </div>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt 
+    &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt —
     <a href="https://x.com/itsbuttryt" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: underline;">
       x.com/itsbuttryt
     </a>
@@ -116,7 +172,6 @@
       document.body.classList.toggle('light');
       localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
     }
-
     window.onload = () => {
       if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light');
