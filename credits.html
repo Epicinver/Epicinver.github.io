@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Credits --------- Butter's Toast</title>
+  <title>Credits - Butter's Toast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
@@ -14,6 +14,7 @@
       --btn-border: #444;
       --hover-bg: #444;
       --accent: #1da1f2;
+      --card-bg: #1a1a1a;
     }
 
     body.light {
@@ -22,6 +23,7 @@
       --btn-bg: #eee;
       --btn-border: #ccc;
       --hover-bg: #ddd;
+      --card-bg: #f9f9f9;
     }
 
     body {
@@ -36,7 +38,7 @@
     }
 
     header {
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 0.5rem;
       font-size: 2.5rem;
       font-weight: 700;
       background: var(--btn-bg);
@@ -44,37 +46,51 @@
       text-align: center;
     }
 
+    header small {
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 0.5rem;
+      color: var(--accent);
+    }
+
     main {
       flex: 1;
-      max-width: 700px;
+      max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
       text-align: center;
     }
 
-    p.intro-text {
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-      line-height: 1.5;
-      font-weight: 500;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--btn-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s, background 0.3s;
     }
 
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--hover-bg);
     }
 
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+      line-height: 1.5;
     }
 
     a {
@@ -154,25 +170,31 @@
   </style>
 </head>
 <body>
-  <header>Butter's Toast</header>
-  <button class="toggle-darkmode" onclick="toggleTheme()">Toggle Theme</button>
-  <main>
-    <p class="intro-text">Credits and shoutouts:</p>
+  <header>
+    Butter's Toast
+    <small>Credits</small>
+  </header>
 
-    <div class="section">
-      <h2>Thanks To</h2>
+  <button class="toggle-darkmode" onclick="toggleTheme()">Toggle Theme</button>
+
+  <main>
+    <h1>Special Thanks 💖</h1>
+
+    <div class="card">
       <ul>
-        <li>Thanks to <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a> for helping me code ig</li>
-        <li>Thx smm to everyone for supporting me</li>
-        <li>Subscribe to my <a href="https://www.youtube.com/@itzbuttryt" target="_blank" rel="noopener noreferrer">YT ig</a></li>
-        <li><a href="../index.html">Home</a></li>
+        <li>Thanks to <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer">freecodecamp.org</a> for helping me learn to code.</li>
+        <li>Massive thanks to everyone for supporting me 🙌</li>
+        <li>Subscribe to my <a href="https://www.youtube.com/@itzbuttryt" target="_blank" rel="noopener noreferrer">YouTube</a>!</li>
+        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
       </ul>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt
-    <a href="https://x.com/itsbuttryt" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: underline;">x.com/itsbuttryt</a>
+    &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt —
+    <a href="https://x.com/itsbuttryt" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: underline;">
+      x.com/itsbuttryt
+    </a>
   </footer>
 
   <div class="social-container">
@@ -187,7 +209,9 @@
       localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
     }
     window.onload = () => {
-      if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light');
+      }
     };
   </script>
 </body>
