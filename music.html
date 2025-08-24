@@ -14,6 +14,7 @@
       --btn-border: #444;
       --hover-bg: #444;
       --accent: #1da1f2;
+      --card-bg: #1a1a1a;
     }
 
     body.light {
@@ -22,6 +23,7 @@
       --btn-bg: #eee;
       --btn-border: #ccc;
       --hover-bg: #ddd;
+      --card-bg: #f9f9f9;
     }
 
     body {
@@ -36,7 +38,7 @@
     }
 
     header {
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 0.5rem;
       font-size: 2.5rem;
       font-weight: 700;
       background: var(--btn-bg);
@@ -44,9 +46,17 @@
       text-align: center;
     }
 
+    header small {
+      display: block;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 0.5rem;
+      color: var(--accent);
+    }
+
     main {
       flex: 1;
-      max-width: 700px;
+      max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
       text-align: center;
@@ -59,27 +69,40 @@
       font-weight: 500;
     }
 
-    .section {
-      margin-bottom: 3rem;
+    .cards {
+      display: grid;
+      gap: 1.5rem;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--btn-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: left;
+      transition: transform 0.2s, background 0.3s;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--hover-bg);
     }
 
-    li {
-      margin-bottom: 0.5rem;
+    .card h2 {
+      font-size: 1.3rem;
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+    }
+
+    .card p {
+      margin: 0.25rem 0 0;
+      font-size: 1rem;
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
+      font-weight: 600;
     }
 
     a:hover {
@@ -154,25 +177,42 @@
   </style>
 </head>
 <body>
-  <header>Butter's Toast</header>
-  <button class="toggle-darkmode" onclick="toggleTheme()">Toggle Theme</button>
-  <main>
-    <p class="intro-text">Some of my favorite music projects and links:</p>
+  <header>
+    Butter's Toast
+    <small>🎵 My Music Projects & Links</small>
+  </header>
 
-    <div class="section">
-      <h2>Music</h2>
-      <ul>
-        <li><a href="https://bandlab.com/arran_hewitt" target="_blank" rel="noopener noreferrer">BandLab</a> — Check out my latest tracks.</li>
-        <li><a href="https://www.youtube.com/channel/UCvTL1zW6hSSx7QYqEBkGkbg" target="_blank" rel="noopener noreferrer">YouTube Music</a> — My music videos and covers.</li>
-          <li><a href="../index.html">Home</a></li>
-        <li>More coming soon...</li>
-      </ul>
+  <button class="toggle-darkmode" onclick="toggleTheme()">Toggle Theme</button>
+
+  <main>
+    <p class="intro-text">Here are some of my favorite music projects, links, and platforms where you can check out my work:</p>
+
+    <div class="cards">
+      <div class="card">
+        <h2><i class="fas fa-music"></i> BandLab</h2>
+        <p><a href="https://bandlab.com/arran_hewitt" target="_blank">Listen here</a> — My latest tracks and collabs.</p>
+      </div>
+
+      <div class="card">
+        <h2><i class="fab fa-youtube"></i> YouTube Music</h2>
+        <p><a href="https://www.youtube.com/channel/UCvTL1zW6hSSx7QYqEBkGkbg" target="_blank">Watch here</a> — Music videos and covers.</p>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-home"></i> Back Home</h2>
+        <p><a href="../index.html">Return to main site</a></p>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-plus-circle"></i> More Coming Soon</h2>
+        <p>Stay tuned for updates!</p>
+      </div>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt
-    <a href="https://x.com/itsbuttryt" target="_blank" rel="noopener noreferrer" style="color: var(--text); text-decoration: underline;">x.com/itsbuttryt</a>
+    &copy; 2025 Butter &copy; Butter is owned by Arran Hewitt —
+    <a href="https://x.com/itsbuttryt" target="_blank">x.com/itsbuttryt</a>
   </footer>
 
   <div class="social-container">
